@@ -66,10 +66,10 @@ Game.prototype.animate = function () {
   var self = this;
   function frame(time) {
     if (self.state) return;
-    if (self.lastTime != null)
+    if (self.lastTime)
       updateAnimation(Math.min(100, time - self.lastTime) / 1000);
     self.lastTime = time;
-    self.animationInstance = requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
   function updateAnimation(step) {
     self.moveAll(step);
